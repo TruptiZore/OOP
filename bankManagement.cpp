@@ -16,10 +16,12 @@ void printMiniStatement(const vector<Transaction>& transactions) {
          << setw(12) << "Balance" << endl;
     cout << "----------------------------------\n";
     
-    for (const auto& txn : transactions) {
+    // Traditional for loop instead of range-based for loop
+    for (size_t i = 0; i < transactions.size(); ++i) {
+        const Transaction& txn = transactions[i];
         cout << left << setw(12) << txn.type
              << setw(12) << fixed << setprecision(2) << txn.amount
-             << setw(12) << txn.balance << endl;
+             << setw(12) << fixed << setprecision(2) << txn.balance << endl;
     }
     
     cout << "----------------------------------\n";
